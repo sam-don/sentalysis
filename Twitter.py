@@ -1,4 +1,4 @@
-import requests_toolbelt
+import requests
 import os
 import json
 
