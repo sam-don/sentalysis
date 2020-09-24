@@ -9,16 +9,16 @@ BEARER_TOKEN = os.getenv("BEARER_TOKEN")
 
 class Twitter():
     @classmethod
-    def get_tweet(cls, twitter_id):
+    def get_tweets(cls, twitter_id):
         try:
             query = f"from:{twitter_id}"
-            tweet_fields = "tweet.fields=author_id"
-            url = f"https://api.twitter.com/2/tweets/search/recent?query={query}&{tweet_fields}"
-            # headers = {"Authorization": "Bearer {}".format(BEARER_TOKEN)}
+            url = f"https://api.twitter.com/2/tweets/search/recent?query={query}"
             headers = {"Authorization": f"Bearer {BEARER_TOKEN}"}
 
             response = requests.get(url, headers=headers)
             tweets = json.loads(response.text)['data']
+
+            print(tweets)
 
             tweet_text = ''
 
