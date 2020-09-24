@@ -25,17 +25,23 @@ if latest_tweets:
         }
     )
 
-sentiments = r.json()['output']
+    sentiments = r.json()['output']
 
-neutral = sentiments.count('Neutral')
-positive = sentiments.count('Positive')
-negative = sentiments.count('Negative')
+    total = len(sentiments)
 
-print(f'''
-Sentiment Analysis
-------------------
+    neutral = sentiments.count('Neutral')
+    positive = sentiments.count('Positive')
+    negative = sentiments.count('Negative')
 
-Neutral: {neutral}
-Positive: {positive}
-Negative: {negative}
-''')
+    print(f'''
+    Sentiment Analysis
+    ------------------
+
+    Total phrases analysed: {total}
+
+    {positive} positive phrases, {(positive / total * 100):.2f}%
+    {neutral} neutral phrases, {(neutral / total * 100):.2f}%
+    {negative} negative phrases, {(negative / total * 100):.2f}%
+
+
+    ''')

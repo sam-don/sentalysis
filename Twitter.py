@@ -11,10 +11,10 @@ class Twitter():
     def get_tweets(cls, twitter_id):
         try:
             if twitter_id[0] == '@':
-                query = f"from:{twitter_id}"
+                query = f"from:{twitter_id[1:]}"
             else:
-                query = twitter_id
-            url = f"https://api.twitter.com/2/tweets/search/recent?query={query}, lang:en&max_results=50&tweet.fields=text"
+                query = f"{twitter_id}, lang:en"
+            url = f"https://api.twitter.com/2/tweets/search/recent?query={query}&max_results=50&tweet.fields=text"
             headers = {"Authorization": f"Bearer {BEARER_TOKEN}"}
 
             response = requests.get(url, headers=headers)
