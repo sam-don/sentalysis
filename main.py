@@ -9,19 +9,21 @@ twitter = Twitter()
 
 DEEP_API_KEY = os.getenv("DEEP_API_KEY")
 
-twitter_user = input("Enter twitter username: ")
+twitter_user = input("Enter twitter username or search query: ")
 
 latest_tweets = twitter.get_tweets(twitter_user)
 
-print(latest_tweets)
+if latest_tweets:
 
-r = requests.post(
-    "https://api.deepai.org/api/sentiment-analysis",
-    data={
-        'text': f'{latest_tweets}',
-    },
-    headers={
-        'api-key': DEEP_API_KEY
-    }
-)
-print(r.json())
+    print(latest_tweets)
+
+    r = requests.post(
+        "https://api.deepai.org/api/sentiment-analysis",
+        data={
+            'text': f'{latest_tweets}',
+        },
+        headers={
+            'api-key': DEEP_API_KEY
+        }
+    )
+    print(r.json())
