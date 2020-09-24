@@ -10,7 +10,7 @@ jobs:
     steps:
       - runs: |
         sudo apt-get update
-        sudo apt-get install python3.8 python3-venv -y
+        sudo apt-get install python3 python3-venv -y
         git clone https://github.com/sam-don/sentalysis.git
         python3.8 -m venv sentalysis/venv
         sentalysis/venv/bin/pip3 install flake8
