@@ -1,8 +1,9 @@
 # Virtual environment
 venv/
 
-# VS Code Files
+# Local Files
 .vscode/
+__pycache__/
 
 # Environment Variables
 .env
