@@ -1,7 +1,6 @@
 import requests
 from dotenv import load_dotenv  # type: ignore
 import os
-import json
 
 load_dotenv()
 
@@ -16,7 +15,7 @@ class Twitter():
             headers = {"Authorization": f"Bearer {BEARER_TOKEN}"}
 
             response = requests.get(url, headers=headers)
-            tweets = json.loads(response.text)['data']
+            tweets = response.json()['data']
 
             print(tweets)
 
