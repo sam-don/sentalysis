@@ -15,8 +15,6 @@ latest_tweets = twitter.get_tweets(twitter_user)
 
 if latest_tweets:
 
-    print(latest_tweets)
-
     r = requests.post(
         "https://api.deepai.org/api/sentiment-analysis",
         data={
@@ -26,4 +24,18 @@ if latest_tweets:
             'api-key': DEEP_API_KEY
         }
     )
-    print(r.json())
+
+sentiments = r.json()['output']
+
+neutral = sentiments.count('Neutral')
+positive = sentiments.count('Positive')
+negative = sentiments.count('Negative')
+
+print(f'''
+Sentiment Analysis
+------------------
+
+Neutral: {neutral}
+Positive: {positive}
+Negative: {negative}
+''')
