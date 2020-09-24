@@ -14,8 +14,12 @@ jobs:
           sudo apt-get install python3.8 python3.8-venv -y
           git clone https://github.com/sam-don/sentalysis.git
           python3.8 -m venv sentalysis/venv
-          sentalysis/venv/bin/pip3 install flake8
+          sentalysis/venv/bin/pip3 install flake8 mypy
           
       - name: Flake8 Test
         run: |
           sentalysis/venv/bin/flake8 sentalysis/main.py
+
+      - name: Mypy Test
+        run: |
+          sentalysis/venv/bin/mypy sentalysis/main.py
