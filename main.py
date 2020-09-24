@@ -1,5 +1,5 @@
 import requests
-from dotenv import load_dotenv
+from dotenv import load_dotenv  # type: ignore
 import os
 
 from Twitter import Twitter
