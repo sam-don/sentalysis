@@ -14,4 +14,4 @@ jobs:
           git clone https://github.com/sam-don/sentalysis.git
           python3.8 -m venv sentalysis/venv
           sentalysis/venv/bin/pip3 install flake8
-          sentalysis/venv/bin/flake8 main.py
+          sentalysis/venv/bin/flake8 sentalysis/main.py
