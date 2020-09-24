@@ -1,6 +1,9 @@
 import requests
+from dotenv import load_dotenv
 import os
 import json
+
+# load_dotenv()
 
 BEARER_TOKEN = os.getenv("BEARER_TOKEN")
 
