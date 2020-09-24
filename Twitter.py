@@ -18,8 +18,13 @@ class Twitter():
             headers = {"Authorization": f"Bearer {BEARER_TOKEN}"}
 
             response = requests.get(url, headers=headers)
-            latest_tweet = json.loads(response.text)['data'][0]['text']
+            tweets = json.loads(response.text)['data']
 
-            return latest_tweet
+            tweet_text = ''
+
+            for tweet in tweets:
+                tweet_text += tweet['text'] + '. '
+
+            return tweet_text
         except Exception:
             return None
