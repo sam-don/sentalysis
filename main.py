@@ -1,10 +1,10 @@
 import requests
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 import os
 
 from Twitter import Twitter
 
-load_dotenv()
+# load_dotenv()
 twitter = Twitter()
 
 DEEP_API_KEY = os.getenv("DEEP_API_KEY")
