@@ -18,7 +18,7 @@ if latest_tweets:
     r = requests.post(
         "https://api.deepai.org/api/sentiment-analysis",
         data={
-            'text': f'{latest_tweets}',
+            'text': latest_tweets,
         },
         headers={
             'api-key': DEEP_API_KEY
