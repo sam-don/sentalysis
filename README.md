@@ -72,6 +72,7 @@ Analysis Class
 - python_dotenv: Loading environment variables
 - os: Loading environment variables, reading and writing files
 - mypy: Static type hinting in Python
+- flake8: Style guide enforcement
 
 #### Flowchart
 
