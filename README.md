@@ -71,6 +71,7 @@ Analysis Class
 - requests: Communicating with APIs
 - python_dotenv: Loading environment variables
 - os: Loading environment variables, reading and writing files
+- mypy: Static type hinting in Python
 
 #### Flowchart
 

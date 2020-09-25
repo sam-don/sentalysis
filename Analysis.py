@@ -1,6 +1,7 @@
 import requests
 from dotenv import load_dotenv  # type: ignore
 import os
+from typing import List
 
 load_dotenv()
 
