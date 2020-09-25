@@ -21,6 +21,7 @@ Twitter Class
     Send request to Twitter API to retrieve tweets.
   
     input: search term or Twitter username provided by user, max results to retrieve
+
     output: dictionary of the retrieved tweets
 
 - parse_tweets method
@@ -28,6 +29,7 @@ Twitter Class
     Retrieved tweets are parsed and just the text content is concatenated into a single string which is returned.
 
     input: dictionary of the tweets retrieved by the Twitter API
+
     output: The text content of every tweet concatenated into a single string
 
 Analysis Class
@@ -37,6 +39,7 @@ Analysis Class
     Send text to Deep AI to analyse and return as a list of strings for each phrase analysed.
 
     input: text provided by user or data received from Twitter API
+
     output: list of strings provided by Deep AI API
 
 - collate_data method
@@ -44,6 +47,7 @@ Analysis Class
     Take list provided by Deep AI and collate data into total phrases, totals of each response from Deep AI and return dictionary of values.
 
     input: list provided by analyse_text method
+
     output: dictionary of collated data
 
 - load_data method
@@ -51,6 +55,7 @@ Analysis Class
     Load file of previously saved analysis results
 
     input: none
+
     output: none
 
 - save_data method
@@ -58,6 +63,7 @@ Analysis Class
     Save analysis results to file
 
     input: list of analysis results
+
     output: none
 
 ### Flowchart
