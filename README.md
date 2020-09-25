@@ -66,12 +66,12 @@ Analysis Class
 
     output: none
 
-### Dependencies
+#### Dependencies
 
 - requests: Communicating with APIs
 - python_dotenv: Loading environment variables
 - os: Loading environment variables, reading and writing files
 
-### Flowchart
+#### Flowchart
 
 ![App Flowchart](docs/flow.drawio.svg)
