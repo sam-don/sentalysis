@@ -8,7 +8,7 @@ load_dotenv()
 DEEP_API_KEY = os.getenv("DEEP_API_KEY")
 
 class Analysis():
-    data: List[ dict ] = []
+    data: List[dict] = []
 
     @classmethod
     def analyse_text(cls, text):

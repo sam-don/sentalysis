@@ -18,14 +18,20 @@ class Twitter():
             headers = {"Authorization": f"Bearer {BEARER_TOKEN}"}
 
             response = requests.get(url, headers=headers)
-            tweets = response.json()['data']
+            if response.json()['meta']['result_count'] == 0:
+                print("There were no tweets to retrieve for that input.")
+                return None
+            else:
+                return response.json()['data']
+        except:
+            print(Exception)
+            print("Sorry, looks like something went wrong!")
 
-            tweet_text = ''
+    @classmethod
+    def parse_tweets(cls, tweets):
+        tweet_text = ''
 
-            for tweet in tweets:
-                tweet_text += tweet['text'] + '. '
+        for tweet in tweets:
+            tweet_text += tweet['text'] + '. '
 
-            return tweet_text
-        except Exception:
-            print("There doesn't seem to be any tweets to fetch for that user or search query.")
-            return None
+        return tweet_text
