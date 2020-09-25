@@ -12,17 +12,24 @@ class Analysis():
 
     @classmethod
     def analyse_text(cls, text):
-        r = requests.post(
-            "https://api.deepai.org/api/sentiment-analysis",
-            data={
-                'text': text,
-            },
-            headers={
-                'api-key': DEEP_API_KEY
-            }
-        )
+        try:
+            r = requests.post(
+                "https://api.deepai.org/api/sentiment-analysis",
+                data={
+                    'text': text,
+                },
+                headers={
+                    'api-key': DEEP_API_KEY
+                }
+            )
 
-        sentiments = r.json()['output']
+            sentiments = r.json()['output']
+            return sentiments
+        except:
+            print("Sorry, looks like something went wrong!")
+
+    @classmethod
+    def collate_data(cls, sentiments):
 
         total = len(sentiments)
 
@@ -30,15 +37,27 @@ class Analysis():
         positive = sentiments.count('Positive')
         negative = sentiments.count('Negative')
 
+        report = {
+            'total': total,
+            'neutral': neutral,
+            'positive': positive,
+            'negative': negative
+        }
+
+        return report
+
+    @classmethod
+    def view_report(cls, data):
+
         print(f'''
         Sentiment Analysis
         ------------------
 
-        Total phrases analysed: {total}
+        Total phrases analysed: {data['total']}
 
-        {positive} positive phrases, {(positive / total * 100):.2f}%
-        {neutral} neutral phrases, {(neutral / total * 100):.2f}%
-        {negative} negative phrases, {(negative / total * 100):.2f}%
+        {data['positive']} positive phrases, {(data['positive'] / data['total'] * 100):.2f}%
+        {data['neutral']} neutral phrases, {(data['neutral'] / data['total'] * 100):.2f}%
+        {data['negative']} negative phrases, {(data['negative'] / data['total'] * 100):.2f}%
 
 
         ''')
