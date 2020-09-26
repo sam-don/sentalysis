@@ -8,7 +8,7 @@ BEARER_TOKEN = os.getenv("BEARER_TOKEN")
 
 class Twitter():
     @classmethod
-    def get_tweets(cls, search_term):
+    def get_tweets(cls, search_term: str) -> list:
         try:
             if search_term[0] == '@':
                 query = f"from:{search_term[1:]}"
@@ -22,14 +22,15 @@ class Twitter():
             response = requests.get(url, headers=headers)
             if response.json()['meta']['result_count'] == 0:
                 print("There were no tweets to retrieve for that input.")
-                return None
+                return []
             else:
                 return response.json()['data']
         except:
             print("Sorry, looks like something went wrong!")
+            return []
 
     @classmethod
-    def parse_tweets(cls, tweets):
+    def parse_tweets(cls, tweets: list) -> str:
         tweet_text = ''
 
         for tweet in tweets:

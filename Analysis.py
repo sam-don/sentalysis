@@ -11,9 +11,9 @@ class Analysis():
     data: List[dict] = []
 
     @classmethod
-    def analyse_text(cls, text):
+    def analyse_text(cls, text: str) -> List[str]:
         try:
-            r = requests.post(
+            response = requests.post(
                 "https://api.deepai.org/api/sentiment-analysis",
                 data={
                     'text': text,
@@ -23,13 +23,14 @@ class Analysis():
                 }
             )
 
-            sentiments = r.json()['output']
+            sentiments = response.json()['output']
             return sentiments
         except:
             print("Sorry, looks like something went wrong!")
+            return []
 
     @classmethod
-    def collate_data(cls, sentiments):
+    def collate_data(cls, sentiments: List[str]) -> dict:
 
         total = len(sentiments)
 
@@ -47,7 +48,7 @@ class Analysis():
         return report
 
     @classmethod
-    def view_report(cls, data):
+    def view_report(cls, data: dict) -> None:
 
         print(f'''
         Sentiment Analysis
