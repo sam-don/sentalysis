@@ -60,5 +60,4 @@ class Analysis():
         {data['neutral']} neutral phrases, {(data['neutral'] / data['total'] * 100):.2f}%
         {data['negative']} negative phrases, {(data['negative'] / data['total'] * 100):.2f}%
 
-
         ''')
