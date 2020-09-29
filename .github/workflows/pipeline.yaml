@@ -23,3 +23,17 @@ jobs:
       - name: Mypy Test
         run: |
           sentalysis/venv/bin/mypy sentalysis/main.py
+  Run-Tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Environment setup
+        run: |
+          sudo apt-get update
+          sudo apt-get install python3.8 python3.8-venv -y
+          git clone https://github.com/sam-don/sentalysis.git
+          python3.8 -m venv sentalysis/venv
+          sentalysis/venv/bin/pip3 install -r requirements.txt
+
+      - name: Run Tests
+        run: |
+          python3.8 -m unittest discover sentalysis/tests/ -v
