@@ -20,6 +20,8 @@ Once the input is provided or retrieved, Sentalysis collates the data and sends 
 
 ### App Structure
 
+[Back To Top](#sentalysis)
+
 Twitter Class
 
 - get_tweets method
@@ -82,6 +84,8 @@ Analysis Class
 
 #### Dependencies
 
+[Back To Top](#sentalysis)
+
 - requests: Communicating with APIs
 - python_dotenv: Loading environment variables
 - os: Loading environment variables, reading and writing files
@@ -89,5 +93,7 @@ Analysis Class
 - flake8: Style guide enforcement
 
 #### Flowchart
+
+[Back To Top](#sentalysis)
 
 ![App Flowchart](docs/flow.drawio.svg)
