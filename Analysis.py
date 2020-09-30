@@ -1,6 +1,7 @@
 import requests
 from dotenv import load_dotenv  # type: ignore
 import os
+import json
 from typing import List
 
 load_dotenv()
@@ -69,4 +70,45 @@ class Analysis():
         
         ''')
 
-        input("Press Enter to continue")
+        user_option = input("Would you like to save this report? (y/n) ")
+
+        if user_option == 'y':
+            cls.save_file(data)
+
+    @classmethod
+    def read_file(cls, file):
+        with open(file) as f:
+            data = f.readlines()
+
+        return data
+
+    @classmethod
+    def save_file(cls, report):
+        name = input("What would you like to name this report?")
+
+        saved = {
+            'name': name,
+            'report': report 
+        }
+
+        cls.data.append(saved)
+
+        with open("saved_reports.json", "w") as outfile:
+            json.dump(cls.data, outfile)
+
+        print("Report saved to file.")
+    
+        return saved
+
+    @classmethod
+    def load_saved(cls):
+        try:
+            json_data = cls.read_file('saved_reports.json')
+            cls.data = json.load(json_data)
+        except:
+            saved_reports = []
+            with open("saved_reports.json", "w") as f:
+                json_data = json.dumps(saved_reports)
+                f.write(json_data)
+
+        return True

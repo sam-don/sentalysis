@@ -4,6 +4,8 @@ from Analysis import Analysis
 twitter = Twitter()
 analysis = Analysis()
 
+analysis.load_saved()
+
 running = True
 
 print("Welcome to SentAlysis!\n")
