@@ -29,7 +29,7 @@ class Analysis():
             sentiments = response.json()['output']
             return sentiments
         except Exception:
-            print("Sorry, looks like something went wrong!")
+            print("\nSorry, looks like something went wrong!")
             return []
 
     @classmethod
@@ -89,11 +89,11 @@ class Analysis():
 
                 return data
         except Exception:
-            print("There was an error opening this file.")
+            print("\nThere was an error opening this file.")
 
     @classmethod
     def save_file(cls, report):
-        name = input("What would you like to name this report?")
+        name = input("\nWhat would you like to name this report?")
 
         saved = {
             'name': name,
@@ -105,7 +105,7 @@ class Analysis():
         with open("saved_reports.json", "w") as outfile:
             json.dump(cls.data, outfile)
 
-        print("Report saved to file.")
+        print("\nReport saved to file.")
 
         return saved
 

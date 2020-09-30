@@ -12,6 +12,12 @@ Sentalysis requires a text input to anylse, which can be provided by the user in
 
 Once the input is provided or retrieved, Sentalysis collates the data and sends it to the Deep AI Semantic Analysis API for analysis. The results are then gathered and displayed to the user.
 
+### Jump To Section
+
+[App Structure](#app-structure)
+[Dependencies](#dependencies)
+[Flowchart](#flowchart)
+
 ### App Structure
 
 Twitter Class

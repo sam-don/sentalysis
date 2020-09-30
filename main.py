@@ -34,7 +34,7 @@ Add '#' to get the tweets with a particular hashtag.
 Anything else will be accepted as a generic Twitter search.
 """)
 
-        twitter_user = input("Enter Twitter username, \
+        twitter_user = input("\nEnter Twitter username, \
 hashtag or search query: ")
 
         latest_tweets = twitter.get_tweets(twitter_user)
@@ -47,15 +47,15 @@ hashtag or search query: ")
         data = ''
 
         while not data:
-            filename = input("Enter filename of file to analyse: ")
+            filename = input("\nEnter filename of file to analyse: ")
             data = analysis.read_file(filename)
 
     elif user_option == '1':
-        data = input("Please enter the text to analyse here.\n\
+        data = input("\nPlease enter the text to analyse here.\n\
 Pressing Enter will submit text for analysis.\n\n")
 
     else:
-        print("That was not a valid option, try again.")
+        print("\nThat was not a valid option, try again.")
         continue
 
     deep_ai_data = analysis.analyse_text(data)
