@@ -41,9 +41,14 @@ hashtag or search query: ")
             continue
 
         data = twitter.parse_tweets(latest_tweets)
+
     elif user_option == '2':
-        print("Sorry, This functionality isn't available yet.")
-        continue
+        data = None
+
+        while not data:
+            filename = input("Enter filename of file to analyse: ")
+            data = analysis.read_file(filename)
+
     elif user_option == '1':
         data = input("Please enter the text to analyse here.\n\
 Pressing Enter will submit text for analysis.\n\n")

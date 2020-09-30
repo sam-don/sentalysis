@@ -77,10 +77,13 @@ class Analysis():
 
     @classmethod
     def read_file(cls, file):
-        with open(file) as f:
-            data = f.readlines()
+        try:
+            with open(file) as f:
+                data = f.read()
 
-        return data
+                return data
+        except:
+            print("There was an error opening this file.")
 
     @classmethod
     def save_file(cls, report):
@@ -110,5 +113,3 @@ class Analysis():
             with open("saved_reports.json", "w") as f:
                 json_data = json.dumps(saved_reports)
                 f.write(json_data)
-
-        return True
