@@ -14,9 +14,9 @@ Once the input is provided or retrieved, Sentalysis collates the data and sends 
 
 ### Jump To Section
 
-[App Structure](#app-structure)
-[Dependencies](#dependencies)
-[Flowchart](#flowchart)
+- [App Structure](#app-structure)
+- [Dependencies](#dependencies)
+- [Flowchart](#flowchart)
 
 ### App Structure
 
