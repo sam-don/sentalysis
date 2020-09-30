@@ -24,14 +24,15 @@ What would you like to do? (Enter 1, 2, 3 or 4) """)
     elif user_option == '3':
 
         print("""There are a few options you can use for Twitter search:
-        
+
 Add '@' at the start to get a specific Twitter users tweets.
 Add '#' to get the tweets with a particular hashtag.
 
 Anything else will be accepted as a generic Twitter search.
 """)
 
-        twitter_user = input("Enter Twitter username, hashtag or search query: ")
+        twitter_user = input("Enter Twitter username, \
+hashtag or search query: ")
 
         latest_tweets = twitter.get_tweets(twitter_user)
         if latest_tweets == []:
@@ -42,16 +43,9 @@ Anything else will be accepted as a generic Twitter search.
         print("Sorry, This functionality isn't available yet.")
         continue
     elif user_option == '1':
-        print("Please enter the text to analyse here.\n"
-              "To end recording Press Ctrl+D on Linux/Mac on Crtl+Z on Windows\n")
-        lines = []
-        try:
-            while True:
-                lines.append(input())
-        except EOFError:
-            pass
-        data = "\n".join(lines)
-        # data = input("Enter the text you would like to analyse here:\n\n")
+        data = input("Please enter the text to analyse here.\n\
+Pressing Enter will submit text for analysis.\n\n")
+
     else:
         print("That was not a valid option, try again.")
         continue
