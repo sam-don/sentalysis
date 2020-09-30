@@ -19,10 +19,14 @@ jobs:
       - name: Flake8 Test
         run: |
           sentalysis/venv/bin/flake8 sentalysis/main.py
+          sentalysis/venv/bin/flake8 sentalysis/Analysis.py
+          sentalysis/venv/bin/flake8 sentalysis/Twitter.py
 
       - name: Mypy Test
         run: |
           sentalysis/venv/bin/mypy sentalysis/main.py
+          sentalysis/venv/bin/mypy sentalysis/Twitter.py
+          sentalysis/venv/bin/mypy sentalysis/Analysis.py
   Run-Tests:
     runs-on: ubuntu-latest
     steps:

@@ -8,6 +8,7 @@ load_dotenv()
 
 DEEP_API_KEY = os.getenv("DEEP_API_KEY")
 
+
 class Analysis():
     data: List[dict] = []
 
@@ -27,7 +28,7 @@ class Analysis():
 
             sentiments = response.json()['output']
             return sentiments
-        except:
+        except Exception:
             print("Sorry, looks like something went wrong!")
             return []
 
@@ -62,12 +63,17 @@ class Analysis():
 
         Total phrases analysed: {data['total']}
 
-        {data['verypositive']} very positive phrases, {(data['verypositive'] / data['total'] * 100):.2f}%
-        {data['positive']} positive phrases, {(data['positive'] / data['total'] * 100):.2f}%
-        {data['neutral']} neutral phrases, {(data['neutral'] / data['total'] * 100):.2f}%
-        {data['negative']} negative phrases, {(data['negative'] / data['total'] * 100):.2f}%
-        {data['verynegative']} very negative phrases, {(data['verynegative'] / data['total'] * 100):.2f}%
-        
+        {data['verypositive']} very positive phrases,\
+ {(data['verypositive'] / data['total'] * 100):.2f}%
+        {data['positive']} positive phrases,\
+ {(data['positive'] / data['total'] * 100):.2f}%
+        {data['neutral']} neutral phrases,\
+ {(data['neutral'] / data['total'] * 100):.2f}%
+        {data['negative']} negative phrases,\
+ {(data['negative'] / data['total'] * 100):.2f}%
+        {data['verynegative']} very negative phrases,\
+ {(data['verynegative'] / data['total'] * 100):.2f}%
+
         ''')
 
         user_option = input("Would you like to save this report? (y/n) ")
@@ -82,7 +88,7 @@ class Analysis():
                 data = f.read()
 
                 return data
-        except:
+        except Exception:
             print("There was an error opening this file.")
 
     @classmethod
@@ -91,7 +97,7 @@ class Analysis():
 
         saved = {
             'name': name,
-            'report': report 
+            'report': report
         }
 
         cls.data.append(saved)
@@ -100,7 +106,7 @@ class Analysis():
             json.dump(cls.data, outfile)
 
         print("Report saved to file.")
-    
+
         return saved
 
     @classmethod
@@ -108,7 +114,7 @@ class Analysis():
         try:
             json_data = cls.read_file('saved_reports.json')
             cls.data = json.load(json_data)
-        except:
+        except Exception:
             saved_reports = []
             with open("saved_reports.json", "w") as f:
                 json_data = json.dumps(saved_reports)

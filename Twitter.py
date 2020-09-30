@@ -7,6 +7,7 @@ load_dotenv()
 
 BEARER_TOKEN = os.getenv("BEARER_TOKEN")
 
+
 class Twitter():
     @classmethod
     def get_tweets(cls, search_term: str) -> list:
@@ -16,8 +17,12 @@ class Twitter():
             elif search_term[0] == '#':
                 query = f"%23{search_term[1:]}"
             else:
+                search_term = search_term.replace('/', '%20')
+                search_term = search_term.replace(' ', '%20')
+                print(search_term)
                 query = f"{search_term}, lang:en"
-            url = f"https://api.twitter.com/2/tweets/search/recent?query={query}&max_results=50&tweet.fields=text"
+            url = f"https://api.twitter.com/2/tweets/search/recent?query=\
+            {query}&max_results=50&tweet.fields=text"
             headers = {"Authorization": f"Bearer {BEARER_TOKEN}"}
 
             response = requests.get(url, headers=headers)
@@ -26,7 +31,7 @@ class Twitter():
                 return []
             else:
                 return response.json()['data']
-        except:
+        except Exception:
             print("Sorry, looks like something went wrong!")
             return []
 
@@ -36,7 +41,7 @@ class Twitter():
 
         for tweet in tweets:
             links_removed = re.sub(r'http\S+',
-                          '', tweet['text'], flags=re.MULTILINE)
+                                   '', tweet['text'], flags=re.MULTILINE)
             tweet_text += links_removed + '. '
 
         return tweet_text

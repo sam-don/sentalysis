@@ -25,7 +25,8 @@ What would you like to do? (Enter 1, 2, 3 or 4) """)
         break
     elif user_option == '3':
 
-        print("""There are a few options you can use for Twitter search:
+        print("""
+There are a few options you can use for Twitter search:
 
 Add '@' at the start to get a specific Twitter users tweets.
 Add '#' to get the tweets with a particular hashtag.
