@@ -43,7 +43,7 @@ hashtag or search query: ")
         data = twitter.parse_tweets(latest_tweets)
 
     elif user_option == '2':
-        data = None
+        data = ''
 
         while not data:
             filename = input("Enter filename of file to analyse: ")
