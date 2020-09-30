@@ -27,6 +27,3 @@ class TestTwitterMethods(unittest.TestCase):
         tweets = twitter.get_tweets('@twitter')
         parsed_tweets = twitter.parse_tweets(tweets)
         self.assertIsInstance(parsed_tweets, str)
-
-if __name__ == '__main__':
-    unittest.main()
