@@ -1,6 +1,7 @@
 import requests
 from dotenv import load_dotenv  # type: ignore
 import os
+import re
 
 load_dotenv()
 
@@ -34,6 +35,8 @@ class Twitter():
         tweet_text = ''
 
         for tweet in tweets:
-            tweet_text += tweet['text'] + '. '
+            links_removed = re.sub(r'http\S+',
+                          '', tweet['text'], flags=re.MULTILINE)
+            tweet_text += links_removed + '. '
 
         return tweet_text

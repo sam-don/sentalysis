@@ -12,6 +12,7 @@ class Analysis():
 
     @classmethod
     def analyse_text(cls, text: str) -> List[str]:
+        print("\nSending data to Deep AI for analysis...\n")
         try:
             response = requests.post(
                 "https://api.deepai.org/api/sentiment-analysis",
@@ -36,13 +37,17 @@ class Analysis():
 
         neutral = sentiments.count('Neutral')
         positive = sentiments.count('Positive')
+        verypositive = sentiments.count('Verypositive')
         negative = sentiments.count('Negative')
+        verynegative = sentiments.count('Verynegative')
 
         report = {
             'total': total,
             'neutral': neutral,
             'positive': positive,
-            'negative': negative
+            'verypositive': verypositive,
+            'negative': negative,
+            'verynegative': verynegative
         }
 
         return report
@@ -56,8 +61,12 @@ class Analysis():
 
         Total phrases analysed: {data['total']}
 
+        {data['verypositive']} very positive phrases, {(data['verypositive'] / data['total'] * 100):.2f}%
         {data['positive']} positive phrases, {(data['positive'] / data['total'] * 100):.2f}%
         {data['neutral']} neutral phrases, {(data['neutral'] / data['total'] * 100):.2f}%
         {data['negative']} negative phrases, {(data['negative'] / data['total'] * 100):.2f}%
-
+        {data['verynegative']} very negative phrases, {(data['verynegative'] / data['total'] * 100):.2f}%
+        
         ''')
+
+        input("Press Enter to continue")
