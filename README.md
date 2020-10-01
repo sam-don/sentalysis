@@ -113,4 +113,4 @@ Analysis Class
 
 [Back To Top](#sentalysis)
 
-![App Flowchart](docs/flow.drawio.svg)
+![Flowchart](docs/flow.drawio.svg)
