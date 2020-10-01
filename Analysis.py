@@ -55,7 +55,7 @@ class Analysis():
         return report
 
     @classmethod
-    def view_report(cls, data: dict) -> None:
+    def view_report(cls, data: dict, saved: bool = False) -> None:
 
         print(f'''
         Sentiment Analysis
@@ -63,10 +63,10 @@ class Analysis():
 
         Total phrases analysed: {data['total']}
 
-        {data['verypositive']} very positive phrases,\
- {(data['verypositive'] / data['total'] * 100):.2f}%
         {data['positive']} positive phrases,\
  {(data['positive'] / data['total'] * 100):.2f}%
+        {data['verypositive']} very positive phrases,\
+ {(data['verypositive'] / data['total'] * 100):.2f}%
         {data['neutral']} neutral phrases,\
  {(data['neutral'] / data['total'] * 100):.2f}%
         {data['negative']} negative phrases,\
@@ -76,10 +76,13 @@ class Analysis():
 
         ''')
 
-        user_option = input("Would you like to save this report? (y/n) ")
+        if not saved:
+            user_option = input("Would you like to save this report? (y/n) ")
 
-        if user_option == 'y':
-            cls.save_file(data)
+            if user_option == 'y':
+                cls.save_file(data)
+        else:
+            user_option = input("Press Enter to return to main menu.")
 
     @classmethod
     def read_file(cls, file):
@@ -113,9 +116,19 @@ class Analysis():
     def load_saved(cls):
         try:
             json_data = cls.read_file('saved_reports.json')
-            cls.data = json.load(json_data)
+            cls.data = json.loads(json_data)
         except Exception:
             saved_reports = []
             with open("saved_reports.json", "w") as f:
                 json_data = json.dumps(saved_reports)
                 f.write(json_data)
+
+    @classmethod
+    def view_saved(cls):
+        print("")
+        for index, report in enumerate(cls.data):
+            print(f"{index+1}. {report['name']}")
+
+        selection = input("\nWhich report would you like to see? ")
+
+        cls.view_report(cls.data[int(selection)-1]['report'], True)

@@ -16,13 +16,17 @@ while running:
 1. Enter text to be analysed
 2. Provide a text file to analyse
 3. Search Twitter and retrieve tweets to analyse
-4. Quit
+4. Load previously saved report
+5. Quit
 
-What would you like to do? (Enter 1, 2, 3 or 4) """)
+What would you like to do? (Enter 1, 2, 3, 4 or 5) """)
 
-    if user_option == '4':
+    if user_option == '5':
         running = False
         break
+    elif user_option == '4':
+        analysis.view_saved()
+        continue
     elif user_option == '3':
 
         print("""
