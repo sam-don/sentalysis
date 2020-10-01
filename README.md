@@ -107,6 +107,7 @@ Analysis Class
 - os: Loading environment variables, reading and writing files
 - mypy: Static type hinting in Python
 - flake8: Style guide enforcement
+- json: Work with json data and files
 
 #### Flowchart
 
