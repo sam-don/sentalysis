@@ -22,11 +22,15 @@ while running:
 What would you like to do? (Enter 1, 2, 3, 4 or 5) """)
 
     if user_option == '5':
+
         running = False
         break
+
     elif user_option == '4':
+
         analysis.view_saved()
         continue
+
     elif user_option == '3':
 
         print("""
@@ -48,6 +52,7 @@ hashtag or search query: ")
         data = twitter.parse_tweets(latest_tweets)
 
     elif user_option == '2':
+
         data = ''
 
         while not data:
@@ -55,10 +60,12 @@ hashtag or search query: ")
             data = analysis.read_file(filename)
 
     elif user_option == '1':
+
         data = input("\nPlease enter the text to analyse here.\n\
 Pressing Enter will submit text for analysis.\n\n")
 
     else:
+
         print("\nThat was not a valid option, try again.")
         continue
 
