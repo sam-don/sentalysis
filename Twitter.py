@@ -27,7 +27,6 @@ class Twitter():
             else:
                 search_term = search_term.replace('/', '%20')
                 search_term = search_term.replace(' ', '%20')
-                print(search_term)
                 query = f"{search_term}, lang:en"
             url = f"https://api.twitter.com/2/tweets/search/recent?query=\
             {query}&max_results=50&tweet.fields=text"
