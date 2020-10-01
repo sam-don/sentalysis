@@ -93,6 +93,7 @@ class Analysis():
                 return data
         except Exception:
             print("\nThere was an error opening this file.")
+            return ''
 
     @classmethod
     def save_file(cls, report):

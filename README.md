@@ -62,23 +62,39 @@ Analysis Class
 
     Using the data which has been retrieved and collated, generate and display a report for the user to see.
 
-    input: dictionary of collated data
+    input: dictionary of collated data, boolean 'saved' to determine whether the report is one that's already saved - default False
 
     output: none, prints report to terminal
 
-- load_data method
+- read_file method
+
+    Reads the contents of a given file and returns the data
+
+    input: the path and/or filename of the file to be read
+
+    output: the data in the file as a string, or an empty string on Exception
+
+- save_file method
+
+    Save analysis results to file
+
+    input: the analysis report to be added to the already saved reports and saved
+
+    output: the saved report
+
+- load_saved method
   
-    Load file of previously saved analysis results
+    Load file of previously saved analysis results, or create the file with an empty list if the file doesn't exist
 
     input: none
 
     output: none
 
-- save_data method
+- view_saved method
 
-    Save analysis results to file
+    Display a list of the saved reports and display report that is selected by user
 
-    input: list of analysis results
+    input: none
 
     output: none
 
