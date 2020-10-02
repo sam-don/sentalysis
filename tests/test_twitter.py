@@ -4,14 +4,16 @@ from Twitter import Twitter
 
 class TestTwitterMethods(unittest.TestCase):
 
+    def setUp(self):
+        self.twitter = Twitter()
+
     def test_get_tweets_user(self):
         """Test if retrieving specific user tweets returns list correctly.
         This test will return an empty list and should still pass if 
         there is no Twitter Bearer Token available.
         """
-        twitter = Twitter()
         user = '@twitter'
-        result = twitter.get_tweets(user)
+        result = self.twitter.get_tweets(user)
         self.assertIsInstance(result, list)
 
     def test_get_tweets_search(self):
@@ -19,9 +21,8 @@ class TestTwitterMethods(unittest.TestCase):
         This test will return an empty list and should still pass if 
         there is no Twitter Bearer Token available.
         """
-        twitter = Twitter()
         search_term = 'news'
-        result = twitter.get_tweets(search_term)
+        result = self.twitter.get_tweets(search_term)
         self.assertIsInstance(result, list)
 
     def test_get_tweets_hashtag(self):
@@ -29,15 +30,13 @@ class TestTwitterMethods(unittest.TestCase):
         This test will return an empty list and should still pass if 
         there is no Twitter Bearer Token available.
         """
-        twitter = Twitter()
         hashtag = '#news'
-        result = twitter.get_tweets(hashtag)
+        result = self.twitter.get_tweets(hashtag)
         self.assertIsInstance(result, list)
 
     def test_parse_tweets(self):
         """Test if a list of tweets correctly parses into a single string.
         """
-        twitter = Twitter()
-        tweets = twitter.get_tweets('@twitter')
-        parsed_tweets = twitter.parse_tweets(tweets)
+        tweets = self.twitter.get_tweets('@twitter')
+        parsed_tweets = self.twitter.parse_tweets(tweets)
         self.assertIsInstance(parsed_tweets, str)

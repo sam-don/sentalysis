@@ -4,15 +4,18 @@ from Analysis import Analysis
 
 class TestAnalysisMethods(unittest.TestCase):
 
+    @classmethod
+    def setUpClass(self):
+        self.analysis = Analysis()
+
     def test_analyse_text(self):
         """Test if retrieving specific user tweets returns list correctly.
         This test will return an empty list and should still pass if 
         there is no Twitter Bearer Token available.
         """
-        analysis = Analysis()
         test_input = "This is some text to analyse.\
              If a Deep AI API Key is not available to use it will return an empty list."
-        result = analysis.analyse_text(test_input)
+        result = self.analysis.analyse_text(test_input)
         self.assertIsInstance(result, list)
 
     def test_collate_data(self):
@@ -20,9 +23,8 @@ class TestAnalysisMethods(unittest.TestCase):
         This test will return an empty list and should still pass if 
         there is no Deep AI API Key available.
         """
-        analysis = Analysis()
         test_input = ['Neutral', 'Neutral', 'Positive', 'Neutral', 'Verynegative', 'Positive', 'Negative', 'Verypositive']
-        report = analysis.collate_data(test_input)
+        report = self.analysis.collate_data(test_input)
 
         self.assertEqual(report['total'], 8)
         self.assertEqual(report['neutral'], 3)
