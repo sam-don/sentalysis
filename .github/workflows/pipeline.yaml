@@ -59,3 +59,5 @@ jobs:
             git clone https://github.com/sam-don/sentalysis.git
             python3.8 -m venv /home/github-actions/sentalysis/venv
             /home/github-actions/sentalysis/venv/bin/pip3.8 install -r /home/github-actions/sentalysis/requirements.txt
+            echo "BEARER_TOKEN=${{ secrets.twitter_bearer_token }}" >> /home/github-actions/sentalysis/.env
+            echo "DEEP_API_KEY=${{ secrets.deep_api_key }}" >> /home/github-actions/sentalysis/.env
