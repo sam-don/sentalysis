@@ -43,3 +43,19 @@ jobs:
         run: |
           cd sentalysis
           venv/bin/python3.8 -m unittest discover tests/
+  Deployment:
+    needs: [Check-Code, Run-Tests]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fresh clone & repo install
+        uses: appleboy/ssh-action@master
+        with:
+          host: 3.211.122.190
+          username: github-actions
+          key: ${{ secrests.ssh_key }}
+          port: 22
+          script: |
+            rm -rf sentalysis
+            git clone https://github.com/sam-don/sentalysis.git
+            python3.8 -m venv /home/github-actions/sentalysis/venv
+            /home/github-actions/sentalysis/venv/bin/pip3.8 install -r /home/github-actions/sentalysis/requirements.txt
