@@ -17,6 +17,7 @@ Once the input is provided or retrieved, Sentalysis collates the data and sends 
 - [App Structure](#app-structure)
 - [Dependencies](#dependencies)
 - [Flowchart](#flowchart)
+- [Installation](#installation)
 
 ### App Structure
 
@@ -102,6 +103,7 @@ Analysis Class
 
 [Back To Top](#sentalysis)
 
+- Python 3.8: This app was built using the latest version of Python at the time
 - requests: Communicating with APIs
 - python_dotenv: Loading environment variables
 - os: Loading environment variables, reading and writing files
@@ -114,3 +116,53 @@ Analysis Class
 [Back To Top](#sentalysis)
 
 ![Flowchart](docs/flow.drawio.svg)
+
+### Installation
+
+[Back To Top](#sentalysis)
+
+- Clone the GitHub repository into a folder in your development environment and enter the project directory.
+
+- Create a new virtual environment using the following command, note that SentAlysis requires Python 3.8
+
+    `python3.8 -m venv venv`
+
+    If you do not have the venv module installed, run `pip install venv` - this command can change depending on what versions of pip you have installed on your system.
+
+- Activate your virtual environment using the following command:
+
+    `source venv/bin/activate`
+
+- Install the dependencies using the following command:
+
+    `pip install -r requirements.txt`
+
+- In the project directory, create a new file called `.env`.
+
+- Create an account on the [Twitter Developer Portal](https://developer.twitter.com/en/portal/dashboard).
+
+- Create a new app and get a Twitter Bearer Token, add the Bearer Token to your `.env` file as so:
+
+    `BEARER_TOKEN=xxxxxxxxxxxxxxxxxx`
+
+- Create an account on [Deep AI](https://deepai.org/dashboard/).
+
+- Get your api-key from the profile page and add it to your `.env` file as so:
+
+    `DEEP_API_KEY=xxxxxxxxxxxxxxxxxx`
+
+- Now you're good to go! Open the app by running `python main.py`.
+
+### Using SentAlysis
+
+[Back To Top](#sentalysis)
+
+There are four main ways to analyse text in SentAlysis:
+
+- Type text directly into the terminal.
+- Enter the path and/or filename of a text file which contains the text you want to analyse.
+- Search Twitter and retrieve the latest tweets for any user, hashtag or search term.
+  - To search for a user simply prefix the Twitter handle with '@' ie. '@twitter'.
+  - Similarly, to search a hashtag, prefix the term with '#' ie. '#twitter'.
+  - Anything apart from the previous examples are considered a generic search term.
+- Load previously saved reports.
