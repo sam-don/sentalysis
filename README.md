@@ -12,12 +12,16 @@ Sentalysis requires a text input to anylse, which can be provided by the user in
 
 Once the input is provided or retrieved, Sentalysis collates the data and sends it to the Deep AI Semantic Analysis API for analysis. The results are then gathered and displayed to the user.
 
-### Jump To Section
+### Table of Contents
 
-- [App Structure](#app-structure)
-- [Dependencies](#dependencies)
-- [Flowchart](#flowchart)
-- [Installation](#installation)
+- [SentAlysis](#sentalysis)
+  - [Sentiment analysis of any text, text file or latest tweets for any Twitter user, hashtag or search term](#sentiment-analysis-of-any-text-text-file-or-latest-tweets-for-any-twitter-user-hashtag-or-search-term)
+    - [Table of Contents](#table-of-contents)
+    - [App Structure](#app-structure)
+      - [Dependencies](#dependencies)
+      - [Flowchart](#flowchart)
+    - [Installation](#installation)
+    - [Using SentAlysis](#using-sentalysis)
 
 ### App Structure
 
@@ -157,7 +161,7 @@ Analysis Class
 
 [Back To Top](#sentalysis)
 
-There are four main ways to analyse text in SentAlysis:
+There are three main ways to analyse text in SentAlysis:
 
 - Type text directly into the terminal.
 - Enter the path and/or filename of a text file which contains the text you want to analyse.
@@ -165,4 +169,5 @@ There are four main ways to analyse text in SentAlysis:
   - To search for a user simply prefix the Twitter handle with '@' ie. '@twitter'.
   - Similarly, to search a hashtag, prefix the term with '#' ie. '#twitter'.
   - Anything apart from the previous examples are considered a generic search term.
-- Load previously saved reports.
+
+After analysis using any of the methods, you have the option of saving the report if you would like to refer back to it later. SentAlysis will prompt you to give a name for the report, which is useful when loading the reports later for easier recognition.
