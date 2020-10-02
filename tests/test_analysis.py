@@ -14,3 +14,19 @@ class TestAnalysisMethods(unittest.TestCase):
              If a Deep AI API Key is not available to use it will return an empty list."
         result = analysis.analyse_text(test_input)
         self.assertIsInstance(result, list)
+
+    def test_collate_data(self):
+        """Given a list of strings as input, return a dict with the correct values.
+        This test will return an empty list and should still pass if 
+        there is no Deep AI API Key available.
+        """
+        analysis = Analysis()
+        test_input = ['Neutral', 'Neutral', 'Positive', 'Neutral', 'Verynegative', 'Positive', 'Negative', 'Verypositive']
+        report = analysis.collate_data(test_input)
+
+        self.assertEqual(report['total'], 8)
+        self.assertEqual(report['neutral'], 3)
+        self.assertEqual(report['positive'], 2)
+        self.assertEqual(report['verypositive'], 1)
+        self.assertEqual(report['negative'], 1)
+        self.assertEqual(report['verynegative'], 1)
