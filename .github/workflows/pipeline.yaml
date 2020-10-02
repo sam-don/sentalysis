@@ -52,7 +52,7 @@ jobs:
         with:
           host: 3.211.122.190
           username: github-actions
-          key: ${{ secrests.ssh_key }}
+          key: ${{ secrets.ssh_key }}
           port: 22
           script: |
             rm -rf sentalysis
