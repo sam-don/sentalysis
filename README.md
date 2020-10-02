@@ -165,6 +165,7 @@ There are three main ways to analyse text in SentAlysis:
 
 - Type text directly into the terminal.
 - Enter the path and/or filename of a text file which contains the text you want to analyse.
+  - As an example, you can find a file called `einstein.txt` in the project directory to analyse.
 - Search Twitter and retrieve the latest tweets for any user, hashtag or search term.
   - To search for a user simply prefix the Twitter handle with '@' ie. '@twitter'.
   - Similarly, to search a hashtag, prefix the term with '#' ie. '#twitter'.
